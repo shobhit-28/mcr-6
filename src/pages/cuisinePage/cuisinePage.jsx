@@ -35,7 +35,7 @@ export const CuisinePage = () => {
             {/*Foods */}
             <div className="flex flex-wrap">
               {restaurant.menu.map((item, index) => (
-                <div key={index} className="card mr-5 cursor-pointer">
+                <div key={index} className="card mr-5 cursor-pointer" onClick={() => navigate(`/restaurant/${restaurant.id}`)}>
                   <div className="w-80 h-60 overflow-hidden flex items-center justify-center mb-2">
                     <img src={item.imgSrc} alt={item.name} className="h-full" />
                   </div>
