@@ -3,6 +3,7 @@ import { DataContext } from "../../context/dataContext"
 import { useContext, useState } from "react"
 import { AiOutlineCloseCircle, AiOutlineStar } from 'react-icons/ai'
 import { IoArrowBack } from 'react-icons/io5'
+import './restaurantDetailPage.css'
 
 export const RestaurantDetailPage = () => {
   const { restaurantID } = useParams()
@@ -89,7 +90,7 @@ export const RestaurantDetailPage = () => {
         </div>
       ))}
       {isModalOpen &&
-        <div className="fixed h-screen w-screen top-0 right-0 z-10 flex justify-center items-center" onClick={() => closeModalHandler()}>
+        <div className="fixed h-screen w-screen top-0 right-0 z-10 flex justify-center items-center modal-container" onClick={() => closeModalHandler()}>
           <div className="opacity-100 bg-pink-800 relative p-5 text-pink-50 rounded-xl w-2/4" onClick={(event) => event.stopPropagation()}>
             <button className="absolute top-2 left-2 text-lg" onClick={() => closeModalHandler()}><AiOutlineCloseCircle /></button>
             <p className="text-center text-2xl font-medium mb-4">Add your review</p>
