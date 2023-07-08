@@ -25,7 +25,11 @@ export const RestaurantDetailPage = () => {
     if (reviewData.comment.length !== 0) {
       setData(data.map((resData) => resData.id === Number(restaurantID)
         ?
-        { ...resData, ratings: [...resData.ratings, reviewData] }
+        {
+          ...resData,
+          ratings: [...resData.ratings, reviewData],
+          averageRating: Math.floor(resData.ratings.reduce((acc, curr) => acc + curr.rating, 0)/resData.ratings.length)
+        }
         :
         resData
       ))
