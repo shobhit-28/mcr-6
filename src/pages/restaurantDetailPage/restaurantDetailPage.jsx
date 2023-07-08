@@ -41,6 +41,16 @@ export const RestaurantDetailPage = () => {
     }
   }
 
+  const closeModalHandler = () => {
+    setIsModalOpen(false)
+    setReviewData({
+      rating: 1,
+      comment: "",
+      revName: "Anonymous",
+      pp: "https://picsum.photos/150/150"
+    })
+  }
+
   return (
     <div className="bg-pink-50 min-h-screen overflow-auto px-80">
       <button className="fixed left-3 top-3 text-3xl" onClick={() => navigate(-1)}><IoArrowBack /></button>
@@ -75,9 +85,9 @@ export const RestaurantDetailPage = () => {
         </div>
       ))}
       {isModalOpen &&
-        <div className="fixed h-screen w-screen top-0 right-0 z-10 flex justify-center items-center" onClick={() => setIsModalOpen(false)}>
+        <div className="fixed h-screen w-screen top-0 right-0 z-10 flex justify-center items-center" onClick={() => closeModalHandler()}>
           <div className="opacity-100 bg-pink-800 relative p-5 text-pink-50 rounded-xl w-2/4" onClick={(event) => event.stopPropagation()}>
-            <button className="absolute top-2 left-2 text-lg" onClick={() => setIsModalOpen(false)}><AiOutlineCloseCircle /></button>
+            <button className="absolute top-2 left-2 text-lg" onClick={() => closeModalHandler()}><AiOutlineCloseCircle /></button>
             <p className="text-center text-2xl font-medium mb-4">Add your review</p>
             <label htmlFor="comment" className="flex my-2 justify-between">
               <p className="">Name:</p>
